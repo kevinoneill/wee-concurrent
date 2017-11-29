@@ -7,8 +7,7 @@
   "types": "lib/index.d.ts",
   "author": "Kevin O'Neill <kevin@oneill.id.au>",
   "scripts": {
-    "build": "yarn run lint && yarn run compile && yarn run test",
-    "prebuild": "yarn run clean",
+    "build": "yarn run clean && yarn run lint && yarn run compile",
     "clean": "rimraf lib",
     "compile:tsc": "tsc -p .",
     "compile": "yarn run compile:tsc",
@@ -18,24 +17,24 @@
     "watch:tsc": "tsc -p . --watch",
     "watch:test": "jest \"tests/*\" --env=node --coverage --watch",
     "watch": "yarn run watch:tsc & yarn run watch:test",
-    "release": "yarn build && semantic-release pre && npm publish && semantic-release post"
+    "release": "semantic-release pre && npm publish && semantic-release post"
   },
   "devDependencies": {
     "@types/jest": "21.1.8",
-    "@types/mz": "0.0.32",
     "@types/node": "8.0.53",
+    "condition-circle": "1.5.0",
     "faker": "4.1.0",
     "jest": "21.2.1",
     "jest-cli": "21.2.1",
     "jest-environment-node-debug": "2.0.0",
     "prettier": "1.8.2",
     "rimraf": "2.6.2",
+    "semantic-release": "8.2.0",
     "ts-jest": "21.2.3",
     "tslint": "5.8.0",
     "tslint-config-prettier": "1.6.0",
     "tslint-config-standard": "7.0.0",
-    "typescript": "2.6.2",
-    "semantic-release": "8.2.0"
+    "typescript": "2.6.2"
   },
   "jest": {
     "transform": {
@@ -52,7 +51,7 @@
     "type": "git",
     "url": "https://github.com/kevinoneill/wee-concurrent.git"
   },
-  "publishConfig": {
-    "access": "public"
+  "release": {
+    "verifyConditions": "condition-circle"
   }
 }
