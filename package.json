@@ -6,6 +6,7 @@
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "author": "Kevin O'Neill <kevin@oneill.id.au>",
+  "keywords": ["mutex", "semaphore", "typescript", "async", "await", "concurrent", "promise"],
   "scripts": {
     "build": "yarn run clean && yarn run lint && yarn run compile",
     "clean": "rimraf lib",
