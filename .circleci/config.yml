@@ -13,6 +13,8 @@ jobs:
     steps:
       - checkout
 
+      - run: yarn global add greenkeeper-lockfile@1
+
       # Download and cache dependencies
       - restore_cache:
           keys:
@@ -28,7 +30,9 @@ jobs:
           key: v1-dependencies-{{ checksum "yarn.lock" }}
 
       - run: yarn build
+      - run: greenkeeper-lockfile-update
       - run: yarn test
+      - run: greenkeeper-lockfile-upload
 
   release:
     docker:
