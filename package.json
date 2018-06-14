@@ -18,7 +18,7 @@
     "watch:tsc": "tsc -p . --watch",
     "watch:test": "jest \"tests/*\" --env=node --coverage --watch",
     "watch": "yarn run watch:tsc & yarn run watch:test",
-    "release": "semantic-release pre && npm publish && semantic-release post"
+    "release": "npx semantic-release"
   },
   "devDependencies": {
     "@types/jest": "23.1.0",
