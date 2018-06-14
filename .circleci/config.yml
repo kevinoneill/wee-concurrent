@@ -6,7 +6,7 @@ version: 2
 jobs:
   test:
     docker:
-      - image: node:8.9
+      - image: node:8.9.3
 
     working_directory: ~/repo
 
@@ -37,7 +37,7 @@ jobs:
   release:
     docker:
       # specify the version you desire here
-      - image: node:8.9
+      - image: node:8.9.3
 
     working_directory: ~/repo
 
