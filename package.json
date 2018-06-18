@@ -22,7 +22,7 @@
   },
   "devDependencies": {
     "@types/jest": "23.1.0",
-    "@types/node": "10.3.3",
+    "@types/node": "10.3.4",
     "condition-circle": "2.0.1",
     "faker": "4.1.0",
     "jest": "23.1.0",
