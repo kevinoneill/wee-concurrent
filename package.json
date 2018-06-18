@@ -21,7 +21,7 @@
     "release": "npx semantic-release"
   },
   "devDependencies": {
-    "@types/jest": "23.1.0",
+    "@types/jest": "23.1.1",
     "@types/node": "10.3.3",
     "condition-circle": "2.0.1",
     "faker": "4.1.0",
