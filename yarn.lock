@@ -919,9 +919,10 @@ concat-map@0.0.1:
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/concat-map/-/concat-map-0.0.1.tgz#d8a96bd77fd68df7793a73036a3ba0d5405d477b"
 
-condition-circle@2.0.1:
-  version "2.0.1"
-  resolved "https://registry.npmjs.org/condition-circle/-/condition-circle-2.0.1.tgz#39cfd9eaa37985b5d7c5b5c538bf872f016b743c"
+condition-circle@2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/condition-circle/-/condition-circle-2.0.2.tgz#1eda973569b2de24eff11179f228e7eadde80506"
+  integrity sha512-lX/6YGbAIFrxxI00y4ZfQYoF1dYSLwcu6Lk7lnnfxiIs/yS4/GBkS5rRxktivU444bRXaFBeVt/JM9sL9fX9SA==
   dependencies:
     "@semantic-release/error" "2.1.0"
     cross-spawn "5.1.0"
