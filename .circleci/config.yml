@@ -29,7 +29,7 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "pnpm-lock.yaml" }}
 
-      - run: npm build
+      - run: npm run build
       - run: npm test
 
   release:
@@ -58,8 +58,8 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "pnpm-lock.lock" }}
 
-      - run: npm build
-      - run: npm release
+      - run: npm run build
+      - run: npm run release
 
 workflows:
   version: 2
