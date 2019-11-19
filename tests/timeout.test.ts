@@ -1,13 +1,15 @@
-import { timeoutAfter, TimeoutError, isTimeout } from "../src/utilities/timeout";
+import { assert, expect } from "chai";
+
+import { timeoutAfter, isTimeout } from "../src/utilities/timeout";
 import { pause } from "./helpers";
 
 describe("Timeout operations", () => {
   it("triggers after specified milliseconds", async () => {
     try {
       await Promise.race([pause(20), timeoutAfter(10)]);
-      fail("Failed to timeout");
+      assert.fail("Failed to timeout");
     } catch (error) {
-      expect(error.message).toEqual("Timeout after 10 milliseconds");
+      expect(error.message).eq("Timeout after 10 milliseconds");
     }
   });
 
@@ -15,7 +17,7 @@ describe("Timeout operations", () => {
     try {
       await Promise.race([pause(1), timeoutAfter(20)]);
     } catch (error) {
-      fail("Timeout triggered");
+      assert.fail("Timeout triggered");
     }
   });
 
@@ -24,7 +26,7 @@ describe("Timeout operations", () => {
       await timeoutAfter(1);
     } catch (error) {
       if (!isTimeout(error)) {
-        fail("Expected to be able to discern timeout errors");
+        assert.fail("Expected to be able to discern timeout errors");
       }
     }
 
@@ -32,7 +34,7 @@ describe("Timeout operations", () => {
       throw new Error("boom");
     } catch (error) {
       if (isTimeout(error)) {
-        fail("Expected to be able to discern timeout errors");
+        assert.fail("Expected to be able to discern timeout errors");
       }
     }
   });
