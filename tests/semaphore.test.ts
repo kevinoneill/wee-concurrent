@@ -61,7 +61,7 @@ describe("Semaphore operations", () => {
     }
     await semaphore.execute(run);
 
-    expect(error).not.undefined;
+    expect(error).not.to.eq(undefined);
     expect(executions).eq(2);
   });
 
