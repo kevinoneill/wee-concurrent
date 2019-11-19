@@ -13,7 +13,7 @@ jobs:
     steps:
       - checkout
 
-      - run: npm global add pnpm
+      - run: npm --global add pnpm
 
       # Download and cache dependencies
       - restore_cache:
@@ -42,7 +42,7 @@ jobs:
     steps:
       - checkout
 
-      - run: npm global add pnpm
+      - run: npm --global add pnpm
 
       # Download and cache dependencies
       - restore_cache:
