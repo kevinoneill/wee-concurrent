@@ -7,38 +7,39 @@ describe("latch", () => {
     const latch = new Latch(2);
 
     let released = await latch.wait(1);
-    expect(released).false;
+    expect(released).to.eq(false);
 
     latch.release();
     released = await latch.wait(1);
-    expect(released).false;
+    expect(released).to.eq(false);
 
     latch.release();
     released = await latch.wait(1);
-    expect(released).true;
+    expect(released).to.eq(true);
   });
+
   it("should default to a single trigger", async () => {
     const latch = new Latch();
 
     let released = await latch.wait(1);
-    expect(released).false;
+    expect(released).to.eq(false);
 
     latch.release();
     released = await latch.wait(1);
-    expect(released).true;
+    expect(released).to.eq(true);
   });
 
   it("should not require release to be called for subsequent waits", async () => {
     const latch = new Latch();
 
     let released = await latch.wait(1);
-    expect(released).false;
+    expect(released).to.eq(false);
 
     latch.release();
     released = await latch.wait(1);
-    expect(released).true;
+    expect(released).to.eq(true);
 
     released = await latch.wait(1);
-    expect(released).true;
+    expect(released).to.eq(true);
   });
 });

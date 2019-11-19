@@ -2,7 +2,7 @@ export class Latch {
   private latch: Promise<boolean>;
   // KAO: Replaced during initialization
   private resolve: (unlatched: boolean) => void = () => {
-    return undefined;
+    return;
   };
 
   constructor(private required: number = 1) {
