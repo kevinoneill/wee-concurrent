@@ -6,60 +6,60 @@ version: 2
 jobs:
   test:
     docker:
-      - image: node:8.9.3
+      - image: node:12.13.0
 
     working_directory: ~/repo
 
     steps:
       - checkout
 
-      - run: yarn global add greenkeeper-lockfile@1
+      - run: npm global add pnpm
 
       # Download and cache dependencies
       - restore_cache:
           keys:
-          - v1-dependencies-{{ checksum "yarn.lock" }}
-          # fallback to using the latest cache if no exact match is found
-          - v1-dependencies-
+            - v1-dependencies-{{ checksum "pnpm-loal.yaml" }}
+            # fallback to using the latest cache if no exact match is found
+            - v1-dependencies-
 
-      - run: yarn install
+      - run: pnpm install
 
       - save_cache:
           paths:
             - node_modules
-          key: v1-dependencies-{{ checksum "yarn.lock" }}
+          key: v1-dependencies-{{ checksum "pnpm-lock.yaml" }}
 
-      - run: yarn build
-      - run: greenkeeper-lockfile-update
-      - run: yarn test
-      - run: greenkeeper-lockfile-upload
+      - run: npm build
+      - run: npm test
 
   release:
     docker:
       # specify the version you desire here
-      - image: node:8.9.3
+      - image: node:12.13.0
 
     working_directory: ~/repo
 
     steps:
       - checkout
 
+      - run: npm global add pnpm
+
       # Download and cache dependencies
       - restore_cache:
           keys:
-          - v1-dependencies-{{ checksum "yarn.lock" }}
-          # fallback to using the latest cache if no exact match is found
-          - v1-dependencies-
+            - v1-dependencies-{{ checksum "pnpm-lock.lock" }}
+            # fallback to using the latest cache if no exact match is found
+            - v1-dependencies-
 
-      - run: yarn install
+      - run: pnpm install
 
       - save_cache:
           paths:
             - node_modules
-          key: v1-dependencies-{{ checksum "yarn.lock" }}
+          key: v1-dependencies-{{ checksum "pnpm-lock.lock" }}
 
-      - run: yarn build
-      - run: yarn release
+      - run: npm build
+      - run: npm release
 
 workflows:
   version: 2
