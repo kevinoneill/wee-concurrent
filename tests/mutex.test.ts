@@ -56,7 +56,7 @@ describe("Mutex operations", () => {
         error = e;
       }
 
-      expect(error).to.not.be.undefined;
+      expect(error).not.to.eq(undefined);
     };
 
     await Promise.all([blocker(), job()]);

@@ -77,7 +77,7 @@ describe("Semaphore operations", () => {
         error = e;
       }
 
-      expect(error).not.undefined;
+      expect(error).not.to.eq(undefined);
     };
 
     await Promise.all([...range(0, 2).map(blocker), job()]);
