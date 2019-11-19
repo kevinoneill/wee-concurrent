@@ -6,48 +6,67 @@
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "author": "Kevin O'Neill <kevin@oneill.id.au>",
-  "keywords": ["mutex", "semaphore", "typescript", "async", "await", "concurrent", "promise"],
+  "keywords": [
+    "mutex",
+    "semaphore",
+    "typescript",
+    "async",
+    "await",
+    "concurrent",
+    "promise"
+  ],
   "scripts": {
-    "build": "yarn run clean && yarn run lint && yarn run compile",
+    "build": "npm run clean && npm run lint && npm run compile",
     "clean": "rimraf lib",
     "compile:tsc": "tsc -p .",
-    "compile": "yarn run compile:tsc",
+    "compile": "npm run compile:tsc",
     "lint": "tslint -c tslint.json --project . \"src/**/*.ts\"",
-    "test:unit": "jest \"tests/*\" --env=node --coverage",
-    "test": "yarn run test:unit",
+    "test": "npm run test:unit",
+    "test:unit": "npx mocha --timeout 10000000 -r ts-node/register --colors --recursive  \"tests/**/*.test.ts\"",
+    "test:watch": "npx mocha --watch --watch-extensions \".ts\" --timeout 10000000 -r ts-node/register --colors --recursive \"tests/**/*.test.ts\"",
     "watch:tsc": "tsc -p . --watch",
     "watch:test": "jest \"tests/*\" --env=node --coverage --watch",
-    "watch": "yarn run watch:tsc & yarn run watch:test",
+    "watch": "npm run watch:tsc & npm run watch:test",
     "release": "npx semantic-release"
   },
   "devDependencies": {
-    "@types/jest": "23.1.0",
-    "@types/node": "10.3.3",
-    "condition-circle": "2.0.1",
+    "@types/chai": "4.2.5",
+    "@types/mocha": "5.2.7",
+    "@types/node": "12.12.9",
+    "chai": "4.2.0",
+    "condition-circle": "2.0.2",
     "faker": "4.1.0",
-    "jest": "23.1.0",
-    "jest-cli": "23.1.0",
-    "jest-environment-node-debug": "2.0.0",
-    "prettier": "1.13.5",
-    "rimraf": "2.6.2",
-    "semantic-release": "15.5.2",
-    "ts-jest": "22.4.6",
-    "tslint": "5.10.0",
-    "tslint-config-prettier": "1.13.0",
-    "tslint-config-standard": "7.0.0",
-    "typescript": "2.9.2"
+    "mocha": "6.2.2",
+    "prettier": "1.19.1",
+    "rimraf": "3.0.0",
+    "semantic-release": "15.13.31",
+    "ts-node": "8.5.2",
+    "tslint": "5.20.1",
+    "tslint-config-prettier": "1.18.0",
+    "tslint-config-standard": "9.0.0",
+    "typescript": "3.7.2"
   },
   "jest": {
     "transform": {
       ".(ts|tsx)": "./node_modules/ts-jest/preprocessor.js"
     },
     "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts)$",
-    "moduleFileExtensions": ["ts", "js", "json"]
+    "moduleFileExtensions": [
+      "ts",
+      "js",
+      "json"
+    ]
   },
   "engines": {
     "node": ">= 8.9.3"
   },
-  "files": ["lib", "package.json", "README.md", "CHANGELOG.md", "LICENCE"],
+  "files": [
+    "lib",
+    "package.json",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENCE"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/kevinoneill/wee-concurrent.git"

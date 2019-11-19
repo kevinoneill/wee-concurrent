@@ -1,5 +1,7 @@
-import { Semaphore, Release } from "../src";
+import { Semaphore } from "../src";
 import { pause, range } from "./helpers";
+
+import { expect } from "chai";
 
 describe("Semaphore operations", () => {
   const concurrency = 2;
@@ -16,9 +18,9 @@ describe("Semaphore operations", () => {
 
   const run = async () => {
     running++;
-    expect(running).toBeLessThanOrEqual(concurrency);
+    expect(running).lte(concurrency);
     await pause(10);
-    expect(running).toBeLessThanOrEqual(concurrency);
+    expect(running).lte(concurrency);
     running--;
     executions++;
   };
@@ -31,7 +33,7 @@ describe("Semaphore operations", () => {
     };
 
     await Promise.all(range(0, 5).map(job));
-    expect(executions).toEqual(5);
+    expect(executions).eq(5);
   });
 
   it("limits workers", async () => {
@@ -40,7 +42,7 @@ describe("Semaphore operations", () => {
     };
 
     await Promise.all(range(0, 5).map(job));
-    expect(executions).toEqual(5);
+    expect(executions).eq(5);
   });
 
   it("recovers from worker errors", async () => {
@@ -59,8 +61,8 @@ describe("Semaphore operations", () => {
     }
     await semaphore.execute(run);
 
-    expect(error).toBeDefined();
-    expect(executions).toEqual(2);
+    expect(error).not.to.eq(undefined);
+    expect(executions).eq(2);
   });
 
   it("respects timeout", async () => {
@@ -75,7 +77,7 @@ describe("Semaphore operations", () => {
         error = e;
       }
 
-      expect(error).toBeDefined();
+      expect(error).not.to.eq(undefined);
     };
 
     await Promise.all([...range(0, 2).map(blocker), job()]);
@@ -90,6 +92,6 @@ describe("Semaphore operations", () => {
     };
 
     await Promise.all(range(0, 5).map(job));
-    expect(executions).toEqual(5);
+    expect(executions).eq(5);
   });
 });

@@ -1,4 +1,6 @@
-import { Mutex, Release } from "../src";
+import { expect } from "chai";
+
+import { Mutex } from "../src";
 import { pause, range } from "./helpers";
 
 describe("Mutex operations", () => {
@@ -15,9 +17,9 @@ describe("Mutex operations", () => {
 
   const run = async () => {
     running++;
-    expect(running).toBeLessThanOrEqual(1);
+    expect(running).to.be.lte(1);
     await pause(10);
-    expect(running).toBeLessThanOrEqual(1);
+    expect(running).to.be.lte(1);
     running--;
     executions++;
   };
@@ -30,7 +32,7 @@ describe("Mutex operations", () => {
     };
 
     await Promise.all(range(0, 5).map(job));
-    expect(executions).toEqual(5);
+    expect(executions).to.eq(5);
   });
 
   it("limits workers", async () => {
@@ -39,7 +41,7 @@ describe("Mutex operations", () => {
     };
 
     await Promise.all(range(0, 5).map(job));
-    expect(executions).toEqual(5);
+    expect(executions).to.eq(5);
   });
 
   it("respects timeout", async () => {
@@ -54,7 +56,7 @@ describe("Mutex operations", () => {
         error = e;
       }
 
-      expect(error).toBeDefined();
+      expect(error).not.to.eq(undefined);
     };
 
     await Promise.all([blocker(), job()]);
@@ -69,6 +71,6 @@ describe("Mutex operations", () => {
     };
 
     await Promise.all(range(0, 5).map(job));
-    expect(executions).toEqual(5);
+    expect(executions).to.eq(5);
   });
 });

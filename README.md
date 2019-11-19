@@ -15,7 +15,7 @@ Concurrent provides two handy classes when you want to limit the amount of concu
 `Semaphore` and `Mutex` share a common interface `Gate`. The `Gate` interface provides two functions `acquire`
 and `execute`.
 
-#### `acquire(timeout?: number): Promise<Release>`
+### `acquire(timeout?: number): Promise<Release>`
 
 If a timeout greater than zero is passed then a `TimeoutError` will be triggered if the duration in milliseconds
 is exceeded.
@@ -30,7 +30,7 @@ try {
 }
 ```
 
-#### `execute<T>(worker: Worker<T>, timeout?: number): Promise<T>;`
+### `execute<T>(worker: Worker<T>, timeout?: number): Promise<T>;`
 
 `execute` allows you to avoid managing the `Release` function by using a `Worker`. A `Worker` is a function from
 `void` to `T` or `Promise<T>`.
@@ -53,7 +53,8 @@ try {
 
 ## Todo
 
-* [x] Semaphore
-* [x] Mutex
-* [ ] Example Usage
-* [ ] Documentation
+- [x] Semaphore
+- [x] Mutex
+- [x] Latch
+- [ ] Example Usage
+- [ ] Documentation
