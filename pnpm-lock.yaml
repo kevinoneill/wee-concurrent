@@ -1,7 +1,7 @@
 devDependencies:
   '@types/chai': 4.2.5
   '@types/mocha': 5.2.7
-  '@types/node': 12.12.9
+  '@types/node': 12.12.21
   chai: 4.2.0
   condition-circle: 2.0.2_semantic-release@15.13.31
   faker: 4.1.0
@@ -232,6 +232,10 @@ packages:
     dev: true
     resolution:
       integrity: sha512-NYrtPht0wGzhwe9+/idPaBB+TqkY9AhTvOLMkThm0IoEfLaiVQZwBwyJ5puCkO3AUCWrmcoePjp2mbFocKy4SQ==
+  /@types/node/12.12.21:
+    dev: true
+    resolution:
+      integrity: sha512-8sRGhbpU+ck1n0PGAUgVrWrWdjSW2aqNeyC15W88GRsMpSwzv6RJGlLhE7s2RhVSOdyDmxbqlWSeThq4/7xqlA==
   /@types/node/12.12.9:
     dev: true
     resolution:
@@ -3089,7 +3093,7 @@ packages:
 specifiers:
   '@types/chai': 4.2.5
   '@types/mocha': 5.2.7
-  '@types/node': 12.12.9
+  '@types/node': 12.12.21
   chai: 4.2.0
   condition-circle: 2.0.2
   faker: 4.1.0
