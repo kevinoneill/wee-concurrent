@@ -1,5 +1,5 @@
 devDependencies:
-  '@types/chai': 4.2.5
+  '@types/chai': 4.2.8
   '@types/mocha': 5.2.7
   '@types/node': 12.12.9
   chai: 4.2.0
@@ -204,10 +204,10 @@ packages:
       semantic-release: '>=15.8.0 <16.0.0'
     resolution:
       integrity: sha512-uF7f9+epsxGNE39i0Ssu56V4w/xd3L4/yWw7FeAFp+SNLXPWTkTErdF2wwkVpxpRpCdgXsoj6T01tMN8tPfciQ==
-  /@types/chai/4.2.5:
+  /@types/chai/4.2.8:
     dev: true
     resolution:
-      integrity: sha512-YvbLiIc0DbbhiANrfVObdkLEHJksQZVq0Uvfg550SRAKVYaEJy+V70j65BVe2WNp6E3HtKsUczeijHFCjba3og==
+      integrity: sha512-U1bQiWbln41Yo6EeHMr+34aUhvrMVyrhn9lYfPSpLTCrZlGxU4Rtn1bocX+0p2Fc/Jkd2FanCEXdw0WNfHHM0w==
   /@types/color-name/1.1.1:
     dev: true
     resolution:
@@ -3087,7 +3087,7 @@ packages:
     resolution:
       integrity: sha512-Ux4ygGWsu2c7isFWe8Yu1YluJmqVhxqK2cLXNQA5AcC3QfbGNpM7fu0Y8b/z16pXLnFxZYvWhd3fhBY9DLmC6Q==
 specifiers:
-  '@types/chai': 4.2.5
+  '@types/chai': 4.2.8
   '@types/mocha': 5.2.7
   '@types/node': 12.12.9
   chai: 4.2.0
