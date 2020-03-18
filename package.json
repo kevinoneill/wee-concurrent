@@ -36,7 +36,7 @@
     "chai": "4.2.0",
     "condition-circle": "2.0.2",
     "faker": "4.1.0",
-    "mocha": "6.2.2",
+    "mocha": "7.1.1",
     "prettier": "1.19.1",
     "rimraf": "3.0.0",
     "semantic-release": "15.13.31",
